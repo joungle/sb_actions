@@ -20,7 +20,7 @@ with SB(uc=True, test=True, locale_code="de") as sb:
     sb.sleep(2)
     sb.driver.cdp.open("https://apps.rescuetrack.com/rmp/")
     sb.sleep(3)
-    sb.driver.cdp.click('div.button.assignButton[data-target="#assignTransportModal71154072"]')
+    sb.driver.cdp.click('div.button.assignButton[data-target="#assignTransportModal71154383"]')
     sb.sleep(1)
     sb.uc_gui_click_captcha()
     sb.sleep(4)
