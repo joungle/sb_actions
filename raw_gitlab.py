@@ -5,7 +5,7 @@ USER = os.environ["USER"]
 PW = os.environ["PW"]
 MISSION = os.environ["MISSION"]
 
-with SB(uc=True, test=True, locale_code="de") as sb:
+with SB(uc=True, incognito=True, xvfb=True, test=True, locale_code="de") as sb:
     sb.activate_cdp_mode("https://login.rescuetrack.com/login/login.html")
     sb.sleep(1)
     sb.driver.cdp.click("input#login-username")
@@ -24,10 +24,10 @@ with SB(uc=True, test=True, locale_code="de") as sb:
     sb.driver.cdp.click(f'div.button.assignButton[data-target="#assignTransportModal{MISSION}"]')
     sb.sleep(1)
     sb.save_screenshot_to_logs()
-    sb.sleep(4)
-    sb.driver.cdp.gui_click_element(f'#assignTransportModal{MISSION} .modal-content #captchaWrapper div')
+    sb.sleep(1)
+    # sb.driver.cdp.gui_click_element(f'#assignTransportModal{MISSION} .modal-content #captchaWrapper div')
     sb.sleep(1)
     sb.uc_gui_click_captcha()
-    sb.sleep(2)
+    sb.sleep(4)
     sb.save_screenshot_to_logs()
     print("Success! Website did not detect SeleniumBase!")
