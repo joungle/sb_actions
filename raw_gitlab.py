@@ -24,7 +24,7 @@ with SB(uc=True, incognito=True, xvfb=True, test=True, locale_code="de") as sb:
     sb.driver.cdp.click(f'div.button.assignButton[data-target="#assignTransportModal{MISSION}"]')
     sb.sleep(1)
     sb.save_screenshot_to_logs()
-    sb.uc_gui_handle_captcha()
+    sb.uc_gui_click_captcha()
     # sb.driver.cdp.gui_click_element(f'#assignTransportModal{MISSION} .modal-content #captchaWrapper div')
     # sb.uc_gui_click_cf(frame=f'#assignTransportModal{MISSION} .modal-content #captchaWrapper div', retry=False, blind=False)
     # sb.uc_gui_click_captcha()
