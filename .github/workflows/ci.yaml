@@ -22,7 +22,7 @@ jobs:
         python-version: ["3.12"]
 
     runs-on: ${{ matrix.os }}
-        steps:
+    steps:
     - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
