@@ -1,13 +1,13 @@
 name: CI build
 on:
-  schedule:
-    - cron: "14 * * * *"
-  push:
-    branches: [ master ]
-  pull_request:
-    branches:
+  repository_dispatch:
+    types: [on-demand-mission]
   workflow_dispatch:
-    branches:
+    inputs:
+      missionId:
+        description: 'The missionId to test'
+        required: false
+        default: 'default-mission-id'
 
 jobs:
   build:
@@ -80,6 +80,7 @@ jobs:
       env:
         USER: ${{ secrets.USER }}
         PW: ${{ secrets.PW }}
+        MISSION: ${{ inputs.missionId }}
       run: |
         python raw_gitlab.py --debug
     - name: Upload screenshots

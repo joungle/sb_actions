@@ -3,6 +3,7 @@ from seleniumbase import SB
 
 USER = os.environ["USER"]
 PW = os.environ["PW"]
+MISSION = os.environ["MISSION"]
 
 with SB(uc=True, test=True, locale_code="de") as sb:
     sb.activate_cdp_mode("https://login.rescuetrack.com/login/login.html")
@@ -20,9 +21,12 @@ with SB(uc=True, test=True, locale_code="de") as sb:
     sb.sleep(2)
     sb.driver.cdp.open("https://apps.rescuetrack.com/rmp/")
     sb.sleep(3)
-    sb.driver.cdp.click('div.button.assignButton[data-target="#assignTransportModal71154383"]')
+    sb.driver.cdp.click(f'div.button.assignButton[data-target="#assignTransportModal{MISSION}"]')
     sb.sleep(1)
+    sb.save_screenshot_to_logs()
     sb.uc_gui_click_captcha()
     sb.sleep(4)
+    sb.driver.cdp.gui_click_element(f'#assignTransportModal{MISSION} .modal-content #captchaWrapper div')
+    sb.sleep(2)
     sb.save_screenshot_to_logs()
     print("Success! Website did not detect SeleniumBase!")
