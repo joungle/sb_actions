@@ -1,4 +1,4 @@
-name: CI build
+name: Build Mac
 on:
   repository_dispatch:
     types: [on-demand-mission]
