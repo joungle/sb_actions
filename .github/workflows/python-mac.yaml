@@ -51,13 +51,13 @@ jobs:
       run: |
         echo "def test_2(): pass" > nothing2.py
         nosetests nothing2.py
-    - name: Run python raw_gitlab.py --debug
+    - name: Run python raw_cf.py --debug
       env:
         USER: ${{ secrets.USER }}
         PW: ${{ secrets.PW }}
         MISSION: ${{ inputs.missionId }}
       run: |
-        python raw_gitlab.py --debug
+        python raw_cf.py --debug
     - name: Upload screenshots
       uses: actions/upload-artifact@v4
       with:

@@ -76,7 +76,7 @@ jobs:
       run: |
         python -c "from seleniumbase.core import detect_b_ver; print(detect_b_ver.get_binary_location('google-chrome'))"
         python -c "from seleniumbase import undetected; print(undetected.find_chrome_executable())"
-    - name: Run python raw_gitlab.py --debug
+    - name: Run python raw_cf.py --debug
       env:
         USER: ${{ secrets.USER }}
         PW: ${{ secrets.PW }}
