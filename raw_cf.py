@@ -3,7 +3,7 @@ from seleniumbase import SB
 with SB(uc=True, test=True, locale="en", guest=True) as sb:
     url = "https://www.cloudflare.com/login"
     sb.activate_cdp_mode(url)
-    sb.sleep(4)
+    sb.sleep(10)
     sb.save_screenshot_to_logs()
     sb.uc_gui_click_captcha()
     sb.sleep(4)
