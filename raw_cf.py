@@ -9,7 +9,7 @@ with SB(uc=True, test=True, locale="en", guest=True) as sb:
     sb.sleep(4)
     sb.save_screenshot_to_logs()
     cf_cookie = None
-    all_cookies = sb.get_all_cookies()
+    all_cookies = sb.cdp.get_all_cookies()
     for cookie in all_cookies:
         if cookie.name == 'cf_clearance':
             cf_cookie = cookie
